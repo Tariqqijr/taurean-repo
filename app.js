@@ -1,8 +1,89 @@
 // Initialize AOS (Animate On Scroll) Library
 AOS.init({
-  duration: 800,
+  duration: 1000,
   once: true,
-  offset: 100
+  offset: 100,
+  easing: 'ease-out-cubic'
+});
+
+// Advanced animations and interactions
+document.addEventListener('DOMContentLoaded', function() {
+  // Animated counter for statistics
+  const animateCounters = () => {
+    const counters = document.querySelectorAll('.stat-number');
+    const options = {
+      threshold: 0.7
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = parseInt(counter.textContent.replace(/[^0-9]/g, ''));
+          const duration = 2000;
+          const step = target / (duration / 16);
+          let current = 0;
+
+          const updateCounter = () => {
+            current += step;
+            if (current < target) {
+              counter.textContent = Math.floor(current) + (counter.textContent.includes('+') ? '+' : '%');
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = target + (counter.textContent.includes('+') ? '+' : '%');
+            }
+          };
+
+          updateCounter();
+          observer.unobserve(counter);
+        }
+      });
+    }, options);
+
+    counters.forEach(counter => observer.observe(counter));
+  };
+
+  // Parallax effect for hero background
+  const parallaxHero = () => {
+    const hero = document.querySelector('.hero-bg-img');
+    if (hero) {
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        hero.style.transform = `translateY(${rate}px)`;
+      });
+    }
+  };
+
+  // Advanced mouse tracking for cards
+  const cardMouseEffects = () => {
+    const cards = document.querySelectorAll('.trust-card, .benefit-item');
+    
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  };
+
+  // Initialize all advanced features
+  animateCounters();
+  parallaxHero();
+  cardMouseEffects();
 });
 
 // DOM Elements
