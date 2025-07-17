@@ -151,17 +151,49 @@ class ImageLoader {
   }
 }
 
-// Statistics counter animation
+// Preloader functionality
+class Preloader {
+  constructor() {
+    this.preloader = document.getElementById('preloader');
+    this.init();
+  }
+
+  init() {
+    // Show preloader for minimum time
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        this.hidePreloader();
+      }, 2500); // Show for 2.5 seconds
+    });
+
+    // Hide immediately if taking too long
+    setTimeout(() => {
+      this.hidePreloader();
+    }, 5000); // Maximum 5 seconds
+  }
+
+  hidePreloader() {
+    if (this.preloader) {
+      this.preloader.classList.add('hidden');
+      // Remove from DOM after animation
+      setTimeout(() => {
+        this.preloader.style.display = 'none';
+      }, 500);
+    }
+  }
+}
+
+// Enhanced Statistics counter animation
 class StatsCounter {
   constructor() {
     this.init();
   }
 
   init() {
-    const statNumbers = document.querySelectorAll('.stat-number');
+    const statNumbers = document.querySelectorAll('.stat-number[data-target]');
     const observerOptions = {
-      threshold: 0.5,
-      rootMargin: '0px 0px -100px 0px'
+      threshold: 0.3,
+      rootMargin: '0px 0px -50px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -179,20 +211,31 @@ class StatsCounter {
   }
 
   animateNumber(element) {
-    const finalNumber = element.textContent.replace(/\D/g, '');
-    const increment = finalNumber / 50;
+    const target = parseInt(element.getAttribute('data-target'));
+    const duration = 2000; // 2 seconds
+    const increment = target / (duration / 16); // 60fps
     let current = 0;
 
-    const timer = setInterval(() => {
+    const updateNumber = () => {
       current += increment;
-      if (current >= finalNumber) {
-        element.textContent = element.textContent.replace(finalNumber, finalNumber);
-        clearInterval(timer);
+      if (current >= target) {
+        element.textContent = target;
       } else {
-        const displayNumber = Math.floor(current);
-        element.textContent = element.textContent.replace(/\d+/, displayNumber);
+        element.textContent = Math.floor(current);
+        requestAnimationFrame(updateNumber);
       }
-    }, 30);
+    };
+
+    // Add entrance animation
+    element.style.transform = 'scale(0.5)';
+    element.style.opacity = '0';
+    
+    setTimeout(() => {
+      element.style.transition = 'all 0.5s ease';
+      element.style.transform = 'scale(1)';
+      element.style.opacity = '1';
+      updateNumber();
+    }, 100);
   }
 }
 
@@ -309,6 +352,7 @@ class ErrorHandler {
 // Initialize all components when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize all classes
+  new Preloader();
   new Navigation();
   new BackToTop();
   new ImageLoader();
@@ -343,6 +387,7 @@ if ('serviceWorker' in navigator) {
 
 // Export functions for global access if needed
 window.TaureanSchool = {
+  Preloader,
   Navigation,
   BackToTop,
   ImageLoader,
