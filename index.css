@@ -216,6 +216,16 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--spacing-md);
+  width: 100%;
+}
+
+/* Section spacing consistency */
+section {
+  position: relative;
+}
+
+section:not(.hero):not(.preloader) {
+  padding: var(--spacing-xl) 0;
 }
 
 /* Typography */
@@ -525,7 +535,6 @@ p {
 
 /* Achievements Section */
 .achievements {
-  padding: var(--spacing-xl) 0;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   position: relative;
   overflow: hidden;
@@ -549,9 +558,12 @@ p {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .stat-card {
@@ -564,6 +576,10 @@ p {
   border: 1px solid rgba(78, 187, 78, 0.1);
   position: relative;
   overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .stat-card::before {
@@ -645,13 +661,16 @@ p {
 
 .achievement-highlights {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--spacing-md);
   margin-top: var(--spacing-xl);
   padding: var(--spacing-lg);
   background: var(--white);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-light);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .highlight-item {
@@ -683,15 +702,17 @@ p {
 
 /* About Section */
 .about {
-  padding: var(--spacing-xl) 0;
   background: var(--light-bg);
 }
 
 .about-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about-card {
@@ -702,6 +723,10 @@ p {
   box-shadow: var(--shadow-light);
   transition: all var(--transition-medium);
   border: 1px solid rgba(78, 187, 78, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .about-card:hover {
@@ -755,13 +780,16 @@ p {
 
 /* Programs Section */
 .programs {
-  padding: var(--spacing-xl) 0;
+  background: var(--white);
 }
 
 .programs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--spacing-lg);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .program-card {
@@ -771,6 +799,9 @@ p {
   box-shadow: var(--shadow-light);
   transition: all var(--transition-medium);
   border-top: 4px solid var(--primary-color);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .program-card:hover {
@@ -818,7 +849,6 @@ p {
 
 /* Activities Section */
 .activities {
-  padding: var(--spacing-xl) 0;
   background: var(--light-bg);
 }
 
@@ -826,6 +856,9 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: var(--spacing-lg);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .activity-card {
@@ -892,13 +925,16 @@ p {
 
 /* Testimonials Section */
 .testimonials {
-  padding: var(--spacing-xl) 0;
+  background: var(--white);
 }
 
 .testimonials-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: var(--spacing-lg);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .testimonial-card {
@@ -959,7 +995,6 @@ p {
 
 /* CTA Section */
 .cta {
-  padding: var(--spacing-xl) 0;
   background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(78, 187, 78, 0.9)), url('background.jpg') center/cover;
   color: var(--white);
   text-align: center;
@@ -1195,13 +1230,20 @@ p {
   .about-grid,
   .programs-grid,
   .activities-grid,
-  .testimonials-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
   .stats-grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
   }
 
   .stat-card {
     padding: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
   }
 
   .stat-number {
@@ -1215,6 +1257,7 @@ p {
   .achievement-highlights {
     grid-template-columns: 1fr;
     padding: var(--spacing-md);
+    gap: var(--spacing-sm);
   }
 
   /* Footer Mobile Fixes */
@@ -1240,6 +1283,22 @@ p {
   .cta-buttons {
     flex-direction: column;
     align-items: center;
+  }
+}
+
+/* Tablet responsive fixes */
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  .programs-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .activities-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
 
@@ -1287,6 +1346,19 @@ p {
   .social-link img {
     width: 35px;
     height: 35px;
+  }
+
+  /* Small mobile specific fixes */
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    min-height: auto;
+  }
+
+  .achievement-highlights {
+    grid-template-columns: 1fr;
   }
 }
 
