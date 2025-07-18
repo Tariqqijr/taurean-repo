@@ -133,13 +133,12 @@
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
         }
 
-                 /* Hero Section */
+                          /* Hero Section */
          .hero {
              min-height: 100vh;
-             background: linear-gradient(135deg, #0f0c29 0%, #24243e 50%, #302b63 100%);
+             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
              display: flex;
              align-items: center;
-             justify-content: center;
              position: relative;
              overflow: hidden;
          }
@@ -151,241 +150,89 @@
              left: 0;
              right: 0;
              bottom: 0;
-             background: radial-gradient(circle at 30% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                         radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
-             z-index: 1;
-         }
-
-         .hero-particles {
-             position: absolute;
-             top: 0;
-             left: 0;
-             width: 100%;
-             height: 100%;
-             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,215,0,0.2)"/><circle cx="40" cy="80" r="1.5" fill="rgba(16,185,129,0.2)"/><circle cx="90" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="90" r="2" fill="rgba(255,215,0,0.1)"/></svg>') repeat;
-             animation: particleFloat 20s linear infinite;
-             z-index: 1;
-         }
-
-         @keyframes particleFloat {
-             0% { transform: translateY(0px); }
-             100% { transform: translateY(-100px); }
+             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>') no-repeat center;
+             background-size: cover;
+             opacity: 0.1;
          }
 
          .hero-container {
-             max-width: 1000px;
+             max-width: 1200px;
              margin: 0 auto;
              padding: 0 2rem;
-             text-align: center;
              position: relative;
-             z-index: 3;
-         }
-
-         .hero-badge {
-             display: inline-flex;
-             align-items: center;
-             gap: 0.5rem;
-             background: rgba(255, 255, 255, 0.1);
-             backdrop-filter: blur(20px);
-             border: 1px solid rgba(255, 215, 0, 0.3);
-             padding: 0.75rem 1.5rem;
-             border-radius: 50px;
-             color: var(--secondary);
-             font-weight: 600;
-             font-size: 0.9rem;
-             margin-bottom: 2rem;
-             box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
-         }
-
-         .hero-title {
-             font-size: 4.5rem;
-             font-weight: 800;
-             color: white;
-             line-height: 1.1;
-             margin-bottom: 2rem;
-             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-         }
-
-         .highlight-animated {
-             background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
-             background-size: 200% 200%;
-             -webkit-background-clip: text;
-             -webkit-text-fill-color: transparent;
-             background-clip: text;
-             animation: gradientFlow 3s ease-in-out infinite;
-             position: relative;
-         }
-
-         @keyframes gradientFlow {
-             0%, 100% { background-position: 0% 50%; }
-             50% { background-position: 100% 50%; }
-         }
-
-         .hero-description {
-             font-size: 1.3rem;
-             color: rgba(255, 255, 255, 0.9);
-             line-height: 1.7;
-             margin-bottom: 2.5rem;
-             max-width: 700px;
-             margin-left: auto;
-             margin-right: auto;
-         }
-
-         .hero-features {
-             display: flex;
-             justify-content: center;
-             gap: 1rem;
-             flex-wrap: wrap;
-             margin-bottom: 3rem;
-         }
-
-         .feature-pill {
-             display: flex;
-             align-items: center;
-             gap: 0.5rem;
-             background: rgba(255, 255, 255, 0.1);
-             backdrop-filter: blur(10px);
-             border: 1px solid rgba(255, 255, 255, 0.2);
-             padding: 0.75rem 1.25rem;
-             border-radius: 25px;
-             color: white;
-             font-weight: 500;
-             font-size: 0.9rem;
-             transition: all 0.3s ease;
-         }
-
-         .feature-pill:hover {
-             background: rgba(255, 255, 255, 0.2);
-             transform: translateY(-2px);
-         }
-
-         .feature-pill i {
-             color: var(--secondary);
-         }
-
-         .hero-cta {
-             display: flex;
-             flex-direction: column;
-             align-items: center;
-             gap: 1rem;
-         }
-
-         .btn-hero-primary {
-             position: relative;
-             background: linear-gradient(45deg, var(--whatsapp), #22c55e);
-             color: white;
-             padding: 1.25rem 3rem;
-             border-radius: 60px;
-             text-decoration: none;
-             font-weight: 700;
-             font-size: 1.2rem;
-             display: inline-flex;
-             align-items: center;
-             gap: 1rem;
-             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-             box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3);
-             overflow: hidden;
-             border: 2px solid rgba(255, 255, 255, 0.1);
-         }
-
-         .btn-hero-primary:hover {
-             transform: translateY(-5px);
-             box-shadow: 0 25px 50px rgba(37, 211, 102, 0.4);
-             background: linear-gradient(45deg, #22c55e, var(--whatsapp));
-         }
-
-         .btn-shine {
-             position: absolute;
-             top: 0;
-             left: -100%;
-             width: 100%;
-             height: 100%;
-             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-             transition: left 0.6s ease;
-         }
-
-         .btn-hero-primary:hover .btn-shine {
-             left: 100%;
-         }
-
-         .hero-note {
-             display: flex;
-             align-items: center;
-             gap: 0.5rem;
-             color: rgba(255, 255, 255, 0.8);
-             font-size: 0.9rem;
-         }
-
-         .hero-note i {
-             color: var(--success);
-         }
-
-         .floating-shapes {
-             position: absolute;
-             top: 0;
-             left: 0;
-             width: 100%;
-             height: 100%;
-             pointer-events: none;
              z-index: 2;
          }
 
-         .shape {
-             position: absolute;
-             border-radius: 50%;
-             background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(16, 185, 129, 0.1));
-             animation: float 6s ease-in-out infinite;
+         .hero-content {
+             max-width: 600px;
+             color: white;
          }
 
-         .shape-1 {
-             width: 80px;
-             height: 80px;
-             top: 20%;
-             left: 10%;
-             animation-delay: 0s;
+         .hero-title {
+             font-family: 'Playfair Display', serif;
+             font-size: 3.5rem;
+             font-weight: 800;
+             line-height: 1.1;
+             margin-bottom: 1.5rem;
+             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
          }
 
-         .shape-2 {
-             width: 120px;
-             height: 120px;
-             top: 60%;
-             right: 10%;
-             animation-delay: 2s;
+         .highlight {
+             color: var(--secondary);
          }
 
-         .shape-3 {
-             width: 60px;
-             height: 60px;
-             bottom: 30%;
-             left: 20%;
-             animation-delay: 4s;
+         .hero-description {
+             font-size: 1.25rem;
+             line-height: 1.7;
+             margin-bottom: 2.5rem;
+             opacity: 0.95;
          }
 
-         .shape-4 {
-             width: 100px;
-             height: 100px;
-             top: 10%;
-             right: 30%;
-             animation-delay: 1s;
+         .hero-buttons {
+             display: flex;
+             gap: 1rem;
+             flex-wrap: wrap;
          }
 
-         .shape-5 {
-             width: 70px;
-             height: 70px;
-             bottom: 20%;
-             right: 40%;
-             animation-delay: 3s;
+         .btn-primary {
+             background: var(--whatsapp);
+             color: white;
+             padding: 1rem 2rem;
+             border-radius: 50px;
+             text-decoration: none;
+             font-weight: 600;
+             display: inline-flex;
+             align-items: center;
+             gap: 0.75rem;
+             transition: all 0.3s ease;
+             font-size: 1.1rem;
+             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
          }
 
-         @keyframes float {
-             0%, 100% { 
-                 transform: translateY(0px) rotate(0deg);
-                 opacity: 0.5;
-             }
-             50% { 
-                 transform: translateY(-20px) rotate(180deg);
-                 opacity: 0.8;
-             }
+         .btn-primary:hover {
+             transform: translateY(-3px);
+             box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
+             background: #22c55e;
+         }
+
+         .btn-secondary {
+             background: transparent;
+             color: white;
+             padding: 1rem 2rem;
+             border: 2px solid rgba(255, 255, 255, 0.3);
+             border-radius: 50px;
+             text-decoration: none;
+             font-weight: 600;
+             display: inline-flex;
+             align-items: center;
+             gap: 0.75rem;
+             transition: all 0.3s ease;
+             font-size: 1.1rem;
+         }
+
+         .btn-secondary:hover {
+             background: rgba(255, 255, 255, 0.1);
+             border-color: rgba(255, 255, 255, 0.5);
          }
 
          /* Stats Section */
@@ -895,36 +742,23 @@
             50% { transform: scale(1.05); }
         }
 
-                 /* Responsive */
+                          /* Responsive */
          @media (max-width: 768px) {
              .nav-links {
                  display: none;
              }
 
              .hero-title {
-                 font-size: 3rem;
+                 font-size: 2.8rem;
              }
 
              .hero-description {
                  font-size: 1.1rem;
              }
 
-             .hero-features {
+             .hero-buttons {
                  flex-direction: column;
-                 align-items: center;
-             }
-
-             .feature-pill {
-                 width: fit-content;
-             }
-
-             .btn-hero-primary {
-                 padding: 1rem 2rem;
-                 font-size: 1.1rem;
-             }
-
-             .floating-shapes {
-                 display: none;
+                 align-items: flex-start;
              }
 
              .stats-grid {
@@ -960,17 +794,16 @@
 
          @media (max-width: 480px) {
              .hero-title {
-                 font-size: 2.5rem;
+                 font-size: 2.2rem;
              }
 
              .hero-container {
                  padding: 0 1rem;
              }
 
-             .btn-hero-primary {
-                 padding: 1rem 1.5rem;
+             .btn-primary, .btn-secondary {
+                 padding: 0.875rem 1.5rem;
                  font-size: 1rem;
-                 gap: 0.75rem;
              }
 
              .stats-grid {
@@ -1028,63 +861,27 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="hero-particles"></div>
         <div class="hero-container">
-            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-                <div class="hero-badge" data-aos="zoom-in" data-aos-delay="200">
-                    <i class="fas fa-crown"></i>
-                    <span>Premium Education Since 1981</span>
-                </div>
-                
-                <h1 class="hero-title playfair" data-aos="fade-up" data-aos-delay="400">
-                    Where <span class="highlight-animated">Brilliance</span><br>
-                    Meets <span class="highlight-animated">Excellence</span>
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Excellence in Education Since <span class="highlight">1981</span>
                 </h1>
                 
-                <p class="hero-description" data-aos="fade-up" data-aos-delay="600">
-                    Give your child the extraordinary advantage of world-class education. 
-                    Join Nigeria's most prestigious learning community where every student 
-                    becomes a future leader.
+                <p class="hero-description">
+                    Join The Taurean Schools family and give your child the foundation for lifelong success. 
+                    Get instant information about our Open Day on WhatsApp.
                 </p>
                 
-                <div class="hero-features" data-aos="fade-up" data-aos-delay="800">
-                    <div class="feature-pill">
-                        <i class="fas fa-star"></i>
-                        <span>Premium Curriculum</span>
-                    </div>
-                    <div class="feature-pill">
-                        <i class="fas fa-globe"></i>
-                        <span>Global Standards</span>
-                    </div>
-                    <div class="feature-pill">
-                        <i class="fas fa-trophy"></i>
-                        <span>Award Winning</span>
-                    </div>
-                </div>
-                
-                <div class="hero-cta" data-aos="zoom-in" data-aos-delay="1000">
-                    <a href="https://wa.me/2347046408968?text=I%20want%20to%20secure%20my%20child%27s%20future%20at%20Taurean%20Schools" target="_blank" class="btn-hero-primary">
-                        <div class="btn-shine"></div>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/2347046408968?text=Hi%20I%20want%20Open%20Day%20information" target="_blank" class="btn-primary">
                         <i class="fab fa-whatsapp"></i>
-                        <span>Secure Your Child's Future</span>
-                        <i class="fas fa-arrow-right"></i>
+                        Get Open Day Info
                     </a>
-                    
-                    <div class="hero-note">
-                        <i class="fas fa-shield-check"></i>
-                        <span>Instant WhatsApp Response • Free Consultation</span>
-                    </div>
+                    <a href="#about" class="btn-secondary">
+                        Learn More About Us
+                    </a>
                 </div>
             </div>
-        </div>
-        
-        <!-- Floating Elements -->
-        <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-            <div class="shape shape-4"></div>
-            <div class="shape shape-5"></div>
         </div>
     </section>
 
