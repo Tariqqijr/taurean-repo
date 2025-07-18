@@ -133,166 +133,370 @@
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
         }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
+                 /* Hero Section */
+         .hero {
+             min-height: 100vh;
+             background: linear-gradient(135deg, #0f0c29 0%, #24243e 50%, #302b63 100%);
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             position: relative;
+             overflow: hidden;
+         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>') no-repeat center;
-            background-size: cover;
-            opacity: 0.1;
-        }
+         .hero::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             background: radial-gradient(circle at 30% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                         radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+             z-index: 1;
+         }
 
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
+         .hero-particles {
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,215,0,0.2)"/><circle cx="40" cy="80" r="1.5" fill="rgba(16,185,129,0.2)"/><circle cx="90" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="90" r="2" fill="rgba(255,215,0,0.1)"/></svg>') repeat;
+             animation: particleFloat 20s linear infinite;
+             z-index: 1;
+         }
 
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: white;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
+         @keyframes particleFloat {
+             0% { transform: translateY(0px); }
+             100% { transform: translateY(-100px); }
+         }
 
-        .hero-content .highlight {
-            color: var(--secondary);
-            position: relative;
-        }
+         .hero-container {
+             max-width: 1000px;
+             margin: 0 auto;
+             padding: 0 2rem;
+             text-align: center;
+             position: relative;
+             z-index: 3;
+         }
 
-        .hero-content p {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
+         .hero-badge {
+             display: inline-flex;
+             align-items: center;
+             gap: 0.5rem;
+             background: rgba(255, 255, 255, 0.1);
+             backdrop-filter: blur(20px);
+             border: 1px solid rgba(255, 215, 0, 0.3);
+             padding: 0.75rem 1.5rem;
+             border-radius: 50px;
+             color: var(--secondary);
+             font-weight: 600;
+             font-size: 0.9rem;
+             margin-bottom: 2rem;
+             box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
+         }
 
-        .hero-stats {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 2.5rem;
-        }
+         .hero-title {
+             font-size: 4.5rem;
+             font-weight: 800;
+             color: white;
+             line-height: 1.1;
+             margin-bottom: 2rem;
+             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+         }
 
-        .stat-item {
-            text-align: center;
-            color: white;
-        }
+         .highlight-animated {
+             background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+             background-size: 200% 200%;
+             -webkit-background-clip: text;
+             -webkit-text-fill-color: transparent;
+             background-clip: text;
+             animation: gradientFlow 3s ease-in-out infinite;
+             position: relative;
+         }
 
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--secondary);
-            display: block;
-        }
+         @keyframes gradientFlow {
+             0%, 100% { background-position: 0% 50%; }
+             50% { background-position: 100% 50%; }
+         }
 
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
+         .hero-description {
+             font-size: 1.3rem;
+             color: rgba(255, 255, 255, 0.9);
+             line-height: 1.7;
+             margin-bottom: 2.5rem;
+             max-width: 700px;
+             margin-left: auto;
+             margin-right: auto;
+         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
+         .hero-features {
+             display: flex;
+             justify-content: center;
+             gap: 1rem;
+             flex-wrap: wrap;
+             margin-bottom: 3rem;
+         }
 
-        .btn-primary {
-            background: var(--whatsapp);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-        }
+         .feature-pill {
+             display: flex;
+             align-items: center;
+             gap: 0.5rem;
+             background: rgba(255, 255, 255, 0.1);
+             backdrop-filter: blur(10px);
+             border: 1px solid rgba(255, 255, 255, 0.2);
+             padding: 0.75rem 1.25rem;
+             border-radius: 25px;
+             color: white;
+             font-weight: 500;
+             font-size: 0.9rem;
+             transition: all 0.3s ease;
+         }
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
-        }
+         .feature-pill:hover {
+             background: rgba(255, 255, 255, 0.2);
+             transform: translateY(-2px);
+         }
 
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            padding: 1rem 2rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-        }
+         .feature-pill i {
+             color: var(--secondary);
+         }
 
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
+         .hero-cta {
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             gap: 1rem;
+         }
 
-        .hero-visual {
-            position: relative;
-        }
+         .btn-hero-primary {
+             position: relative;
+             background: linear-gradient(45deg, var(--whatsapp), #22c55e);
+             color: white;
+             padding: 1.25rem 3rem;
+             border-radius: 60px;
+             text-decoration: none;
+             font-weight: 700;
+             font-size: 1.2rem;
+             display: inline-flex;
+             align-items: center;
+             gap: 1rem;
+             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+             box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3);
+             overflow: hidden;
+             border: 2px solid rgba(255, 255, 255, 0.1);
+         }
 
-        .hero-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
+         .btn-hero-primary:hover {
+             transform: translateY(-5px);
+             box-shadow: 0 25px 50px rgba(37, 211, 102, 0.4);
+             background: linear-gradient(45deg, #22c55e, var(--whatsapp));
+         }
 
-        .hero-card h3 {
-            color: var(--primary);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
+         .btn-shine {
+             position: absolute;
+             top: 0;
+             left: -100%;
+             width: 100%;
+             height: 100%;
+             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+             transition: left 0.6s ease;
+         }
 
-        .hero-card .features {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
+         .btn-hero-primary:hover .btn-shine {
+             left: 100%;
+         }
 
-        .hero-card .features li {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-            color: var(--dark);
-        }
+         .hero-note {
+             display: flex;
+             align-items: center;
+             gap: 0.5rem;
+             color: rgba(255, 255, 255, 0.8);
+             font-size: 0.9rem;
+         }
 
-        .hero-card .features i {
-            color: var(--success);
-            font-size: 1.1rem;
-        }
+         .hero-note i {
+             color: var(--success);
+         }
+
+         .floating-shapes {
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             pointer-events: none;
+             z-index: 2;
+         }
+
+         .shape {
+             position: absolute;
+             border-radius: 50%;
+             background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(16, 185, 129, 0.1));
+             animation: float 6s ease-in-out infinite;
+         }
+
+         .shape-1 {
+             width: 80px;
+             height: 80px;
+             top: 20%;
+             left: 10%;
+             animation-delay: 0s;
+         }
+
+         .shape-2 {
+             width: 120px;
+             height: 120px;
+             top: 60%;
+             right: 10%;
+             animation-delay: 2s;
+         }
+
+         .shape-3 {
+             width: 60px;
+             height: 60px;
+             bottom: 30%;
+             left: 20%;
+             animation-delay: 4s;
+         }
+
+         .shape-4 {
+             width: 100px;
+             height: 100px;
+             top: 10%;
+             right: 30%;
+             animation-delay: 1s;
+         }
+
+         .shape-5 {
+             width: 70px;
+             height: 70px;
+             bottom: 20%;
+             right: 40%;
+             animation-delay: 3s;
+         }
+
+         @keyframes float {
+             0%, 100% { 
+                 transform: translateY(0px) rotate(0deg);
+                 opacity: 0.5;
+             }
+             50% { 
+                 transform: translateY(-20px) rotate(180deg);
+                 opacity: 0.8;
+             }
+         }
+
+         /* Stats Section */
+         .stats-section {
+             padding: 6rem 0;
+             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+             position: relative;
+         }
+
+         .stats-section::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0,0,0,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+         }
+
+         .stats-grid {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+             gap: 2rem;
+             position: relative;
+             z-index: 2;
+         }
+
+         .stat-card {
+             background: white;
+             border-radius: 20px;
+             padding: 2.5rem 2rem;
+             text-align: center;
+             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+             border: 1px solid rgba(255, 255, 255, 0.8);
+             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+             position: relative;
+             overflow: hidden;
+         }
+
+         .stat-card::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: -100%;
+             width: 100%;
+             height: 100%;
+             background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+             transition: left 0.6s ease;
+         }
+
+         .stat-card:hover::before {
+             left: 100%;
+         }
+
+         .stat-card:hover {
+             transform: translateY(-10px);
+             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+             border-color: var(--secondary);
+         }
+
+         .stat-icon {
+             width: 80px;
+             height: 80px;
+             margin: 0 auto 1.5rem;
+             border-radius: 20px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             font-size: 2rem;
+             color: white;
+             background: linear-gradient(135deg, var(--primary), var(--primary-light));
+             box-shadow: 0 10px 25px rgba(26, 54, 93, 0.3);
+         }
+
+         .stat-card:nth-child(2) .stat-icon {
+             background: linear-gradient(135deg, var(--secondary), #f59e0b);
+         }
+
+         .stat-card:nth-child(3) .stat-icon {
+             background: linear-gradient(135deg, var(--success), #059669);
+         }
+
+         .stat-card:nth-child(4) .stat-icon {
+             background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+         }
+
+         .stat-number {
+             font-size: 3rem;
+             font-weight: 900;
+             color: var(--primary);
+             line-height: 1;
+             margin-bottom: 0.5rem;
+             background: linear-gradient(45deg, var(--primary), var(--primary-light));
+             -webkit-background-clip: text;
+             -webkit-text-fill-color: transparent;
+             background-clip: text;
+         }
+
+         .stat-label {
+             font-size: 1.2rem;
+             font-weight: 700;
+             color: var(--dark);
+             margin-bottom: 0.75rem;
+         }
+
+         .stat-description {
+             font-size: 0.95rem;
+             color: var(--gray-800);
+             opacity: 0.8;
+             line-height: 1.5;
+         }
 
         /* Trust Section */
         .trust-section {
@@ -691,43 +895,98 @@
             50% { transform: scale(1.05); }
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+                 /* Responsive */
+         @media (max-width: 768px) {
+             .nav-links {
+                 display: none;
+             }
 
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 3rem;
-            }
+             .hero-title {
+                 font-size: 3rem;
+             }
 
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
+             .hero-description {
+                 font-size: 1.1rem;
+             }
 
-            .hero-stats {
-                justify-content: center;
-            }
+             .hero-features {
+                 flex-direction: column;
+                 align-items: center;
+             }
 
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
+             .feature-pill {
+                 width: fit-content;
+             }
 
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
+             .btn-hero-primary {
+                 padding: 1rem 2rem;
+                 font-size: 1.1rem;
+             }
 
-            .cta-content h2 {
-                font-size: 2rem;
-            }
+             .floating-shapes {
+                 display: none;
+             }
 
-            .section-title {
-                font-size: 2rem;
-            }
-        }
+             .stats-grid {
+                 grid-template-columns: 1fr;
+                 gap: 1.5rem;
+             }
+
+             .stat-card {
+                 padding: 2rem 1.5rem;
+             }
+
+             .stat-number {
+                 font-size: 2.5rem;
+             }
+
+             .contact-grid {
+                 grid-template-columns: 1fr;
+             }
+
+             .footer-content {
+                 grid-template-columns: 1fr;
+                 text-align: center;
+             }
+
+             .cta-content h2 {
+                 font-size: 2rem;
+             }
+
+             .section-title {
+                 font-size: 2rem;
+             }
+         }
+
+         @media (max-width: 480px) {
+             .hero-title {
+                 font-size: 2.5rem;
+             }
+
+             .hero-container {
+                 padding: 0 1rem;
+             }
+
+             .btn-hero-primary {
+                 padding: 1rem 1.5rem;
+                 font-size: 1rem;
+                 gap: 0.75rem;
+             }
+
+             .stats-grid {
+                 grid-template-columns: 1fr;
+             }
+
+             .stat-icon {
+                 width: 60px;
+                 height: 60px;
+                 font-size: 1.5rem;
+             }
+
+             .stat-number {
+                 font-size: 2rem;
+             }
+         }
 
         /* Animations */
         .fade-in-up {
@@ -769,57 +1028,112 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
+        <div class="hero-particles"></div>
         <div class="hero-container">
-            <div class="hero-content" data-aos="fade-right">
-                <h1 class="playfair">
-                    Excellence in Education Since <span class="highlight">1981</span>
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <div class="hero-badge" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-crown"></i>
+                    <span>Premium Education Since 1981</span>
+                </div>
+                
+                <h1 class="hero-title playfair" data-aos="fade-up" data-aos-delay="400">
+                    Where <span class="highlight-animated">Brilliance</span><br>
+                    Meets <span class="highlight-animated">Excellence</span>
                 </h1>
-                <p>
-                    Join The Taurean Schools family and give your child the foundation for lifelong success. 
-                    Get instant information about our programs, admissions, and open days through WhatsApp.
+                
+                <p class="hero-description" data-aos="fade-up" data-aos-delay="600">
+                    Give your child the extraordinary advantage of world-class education. 
+                    Join Nigeria's most prestigious learning community where every student 
+                    becomes a future leader.
                 </p>
                 
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">40+</span>
-                        <span class="stat-label">Years of Excellence</span>
+                <div class="hero-features" data-aos="fade-up" data-aos-delay="800">
+                    <div class="feature-pill">
+                        <i class="fas fa-star"></i>
+                        <span>Premium Curriculum</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">1000+</span>
-                        <span class="stat-label">Successful Graduates</span>
+                    <div class="feature-pill">
+                        <i class="fas fa-globe"></i>
+                        <span>Global Standards</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Commitment</span>
+                    <div class="feature-pill">
+                        <i class="fas fa-trophy"></i>
+                        <span>Award Winning</span>
                     </div>
                 </div>
                 
-                <div class="hero-buttons">
-                    <a href="https://wa.me/2347046408968?text=Hi%20I%20want%20Open%20Day%20information" target="_blank" class="btn-primary">
+                <div class="hero-cta" data-aos="zoom-in" data-aos-delay="1000">
+                    <a href="https://wa.me/2347046408968?text=I%20want%20to%20secure%20my%20child%27s%20future%20at%20Taurean%20Schools" target="_blank" class="btn-hero-primary">
+                        <div class="btn-shine"></div>
                         <i class="fab fa-whatsapp"></i>
-                        Get Open Day Info
+                        <span>Secure Your Child's Future</span>
+                        <i class="fas fa-arrow-right"></i>
                     </a>
-                    <a href="#about" class="btn-secondary">
-                        <i class="fas fa-play"></i>
-                        Learn More
-                    </a>
+                    
+                    <div class="hero-note">
+                        <i class="fas fa-shield-check"></i>
+                        <span>Instant WhatsApp Response • Free Consultation</span>
+                    </div>
                 </div>
             </div>
-            
-            <div class="hero-visual" data-aos="fade-left">
-                <div class="hero-card">
-                    <h3><i class="fas fa-calendar-alt"></i> Open Day Information</h3>
-                    <ul class="features">
-                        <li><i class="fas fa-check"></i> Complete event schedule</li>
-                        <li><i class="fas fa-check"></i> Meet our teachers</li>
-                        <li><i class="fas fa-check"></i> Campus tour details</li>
-                        <li><i class="fas fa-check"></i> Admission requirements</li>
-                        <li><i class="fas fa-check"></i> Quick Q&A session</li>
-                    </ul>
-                    <a href="https://wa.me/2347046408968?text=Send%20me%20Open%20Day%20details" target="_blank" class="btn-primary" style="width: 100%; justify-content: center;">
-                        <i class="fab fa-whatsapp"></i>
-                        Send Me Details
-                    </a>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+    </section>
+
+    <!-- Achievement Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="43">43+</div>
+                        <div class="stat-label">Years of Excellence</div>
+                        <div class="stat-description">Established in 1981, decades of proven educational leadership</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="1000">1,000+</div>
+                        <div class="stat-label">Successful Graduates</div>
+                        <div class="stat-description">Alumni excelling in top universities and careers worldwide</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="100">100%</div>
+                        <div class="stat-label">Success Rate</div>
+                        <div class="stat-description">Every student prepared for academic and life success</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="25">25:1</div>
+                        <div class="stat-label">Student-Teacher Ratio</div>
+                        <div class="stat-description">Personalized attention for every child's unique potential</div>
+                    </div>
                 </div>
             </div>
         </div>
