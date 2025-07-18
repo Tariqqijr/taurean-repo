@@ -1,404 +1,1135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Taurean Schools - Excellence in Education Since 1981</title>
-  <meta name="description" content="The Taurean Schools provides world-class education with over 40 years of excellence. Located in Surulere, Lagos, we offer comprehensive primary education with STEM, Arts, and Sports programs.">
-  <meta name="keywords" content="Taurean Schools, Lagos education, private school, STEM education, primary school, Surulere">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- AOS Animation Library -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="index.css">
-</head>
-<body>
-  <!-- Header with Anniversary Badge -->
-  <div class="anniversary-header">
-    <div class="anniversary-badge">
-      <img src="badge__1_-removebg-preview.png" alt="40th Anniversary">
-      <span>40th Anniversary</span>
-    </div>
-  </div>
-
-  <!-- Hero Section -->
-  <section class="hero-main">
-    <div class="hero-background">
-      <div class="hero-overlay"></div>
-      <img src="background.jpg" alt="Taurean Schools Campus" class="hero-bg-img">
-      <div class="floating-elements">
-        <div class="float-element element-1" data-aos="fade-right" data-aos-delay="800"></div>
-        <div class="float-element element-2" data-aos="fade-left" data-aos-delay="1000"></div>
-        <div class="float-element element-3" data-aos="fade-up" data-aos-delay="1200"></div>
-      </div>
-    </div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Taurean Schools - Excellence in Education Since 1981</title>
+    <meta name="description" content="The Taurean Schools - 40+ years of educational excellence in Lagos. Join our Open Day for instant WhatsApp info on admissions, programs, and more.">
     
-    <div class="hero-content">
-      <div class="hero-text" data-aos="fade-up" data-aos-duration="1000">
-        <div class="hero-badge" data-aos="zoom-in" data-aos-delay="300">
-          <i class="fas fa-graduation-cap"></i>
-          <span>Excellence Since 1981</span>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2d5a87;
+            --secondary: #f59e0b;
+            --accent: #10b981;
+            --success: #059669;
+            --whatsapp: #25d366;
+            --dark: #1f2937;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-800: #1f2937;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: var(--whatsapp);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>') no-repeat center;
+            background-size: cover;
+            opacity: 0.1;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content .highlight {
+            color: var(--secondary);
+            position: relative;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--whatsapp);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-card .features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-card .features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+
+        .hero-card .features i {
+            color: var(--success);
+            font-size: 1.1rem;
+        }
+
+        /* Trust Section */
+        .trust-section {
+            padding: 6rem 0;
+            background: var(--gray-100);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray-800);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .trust-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trust-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .trust-card:hover::before {
+            left: 100%;
+        }
+
+        .trust-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+        }
+
+        .trust-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trust-icon.icon-1 { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .trust-icon.icon-2 { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .trust-icon.icon-3 { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+
+        .trust-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .trust-card p {
+            color: var(--gray-800);
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            background: var(--gray-100);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .benefit-item:hover {
+            background: white;
+            border-color: var(--accent);
+            transform: translateX(8px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--whatsapp), var(--success));
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-content h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-content p {
+            color: var(--gray-800);
+            opacity: 0.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--accent), var(--success));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="100" cy="100" r="50" fill="rgba(255,255,255,0.1)"/><circle cx="900" cy="200" r="80" fill="rgba(255,255,255,0.05)"/><circle cx="200" cy="800" r="60" fill="rgba(255,255,255,0.08)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .cta-content {
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 0;
+            background: var(--gray-100);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .contact-details h4 {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-details p {
+            color: var(--gray-800);
+            opacity: 0.8;
+        }
+
+        .map-container {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 400px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        .footer-links h4 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.6;
+        }
+
+        /* Floating WhatsApp */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-whatsapp a {
+            width: 60px;
+            height: 60px;
+            background: var(--whatsapp);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .floating-whatsapp a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <span>Taurean Schools</span>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#programs">Programs</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            
+            <a href="https://wa.me/2347046408968?text=Hi%20I%20want%20to%20learn%20more%20about%20Taurean%20Schools" target="_blank" class="cta-button">
+                <i class="fab fa-whatsapp"></i>
+                Chat with Us
+            </a>
         </div>
-        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="400">
-          Let's Send You All the Open Day<br>
-          <span class="highlight-text">Info Instantly</span> on WhatsApp
-        </h1>
-        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="600">
-          Join us at The Taurean School → a school built on legacy and love since 1981
-        </p>
-        <p class="hero-subtext" data-aos="fade-up" data-aos-delay="700">
-          We will send you event agenda, teacher bios, and exclusive insights
-        </p>
-        <div class="hero-button" data-aos="zoom-in" data-aos-delay="800">
-          <a href="https://wa.me/2347046408968?text=Hi%20I%20want%20to%20get%20info%20on%20WhatsApp" target="_blank" class="whatsapp-btn-modern">
-            <div class="btn-content">
-              <i class="fab fa-whatsapp"></i>
-              <span>Get Info on WhatsApp</span>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-content" data-aos="fade-right">
+                <h1 class="playfair">
+                    Excellence in Education Since <span class="highlight">1981</span>
+                </h1>
+                <p>
+                    Join The Taurean Schools family and give your child the foundation for lifelong success. 
+                    Get instant information about our programs, admissions, and open days through WhatsApp.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">40+</span>
+                        <span class="stat-label">Years of Excellence</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Successful Graduates</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Commitment</span>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="https://wa.me/2347046408968?text=Hi%20I%20want%20Open%20Day%20information" target="_blank" class="btn-primary">
+                        <i class="fab fa-whatsapp"></i>
+                        Get Open Day Info
+                    </a>
+                    <a href="#about" class="btn-secondary">
+                        <i class="fas fa-play"></i>
+                        Learn More
+                    </a>
+                </div>
             </div>
-            <div class="btn-glow"></div>
-          </a>
-        </div>
-        <div class="hero-stats" data-aos="fade-up" data-aos-delay="900">
-          <div class="stat-item">
-            <div class="stat-number">40+</div>
-            <div class="stat-label">Years Excellence</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">1000+</div>
-            <div class="stat-label">Graduates</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Success Rate</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Parents Trust Section -->
-  <section class="trust-section">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <h2 class="section-title">
-          <i class="fas fa-heart"></i>
-          Why Parents Trust The Taurean School
-        </h2>
-      </div>
-
-      <div class="trust-grid">
-        <div class="trust-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="trust-icon">
-            <img src="graduation2.png" alt="40+ Years of Excellence" class="trust-img">
-          </div>
-          <h3>40+ Years of Educational Excellence</h3>
-          <p>Established in 1981, we've been shaping young minds and building character for over four decades.</p>
-        </div>
-
-        <div class="trust-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="trust-icon">
-            <img src="graduation.png" alt="Over 1,000 Successful Graduates" class="trust-img">
-          </div>
-          <h3>1,000+ Successful Graduates</h3>
-          <p>Our alumni have gone on to excel in top universities and successful careers worldwide.</p>
-        </div>
-
-        <div class="trust-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="trust-icon">
-            <img src="medal.png" alt="Holistic Education & Community Impact" class="trust-img">
-          </div>
-          <h3>Holistic Education & Community Pillar</h3>
-          <p>Strong academic focus combined with values-based education, serving as a cornerstone of the Surulere community.</p>
-        </div>
-      </div>
-
-      <!-- Testimonial Quote -->
-      <div class="quote-section" data-aos="fade-up" data-aos-delay="500">
-        <blockquote class="quote">
-          "Both my kids flourished at The Taurean School. We felt like part of a family."
-        </blockquote>
-        <cite class="quote-author">— Mrs. Chinyere S. (Current of Class of 2019 & 2021)</cite>
-      </div>
-    </div>
-  </section>
-
-  <!-- WhatsApp Benefits Section -->
-  <section class="whatsapp-benefits">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <h2 class="section-title">
-          <i class="fas fa-check-circle"></i>
-          What You'll Get When You Message Us on WhatsApp
-        </h2>
-      </div>
-
-      <div class="benefits-grid">
-        <div class="benefit-item" data-aos="fade-right" data-aos-delay="100">
-          <div class="benefit-number">01</div>
-          <div class="benefit-content">
-            <h3>Full Open Day Schedule</h3>
-          </div>
-        </div>
-
-        <div class="benefit-item" data-aos="fade-right" data-aos-delay="200">
-          <div class="benefit-number">02</div>
-          <div class="benefit-content">
-            <h3>Meet Your Child's (To-be) teachers</h3>
-          </div>
-        </div>
-
-        <div class="benefit-item" data-aos="fade-right" data-aos-delay="300">
-          <div class="benefit-number">03</div>
-          <div class="benefit-content">
-            <h3>Quick answers from our admin team</h3>
-          </div>
-        </div>
-
-        <div class="benefit-item" data-aos="fade-right" data-aos-delay="400">
-          <div class="benefit-number">04</div>
-          <div class="benefit-content">
-            <h3>Calendar Reminder so you don't forget</h3>
-          </div>
-        </div>
-      </div>
-
-      <div class="whatsapp-cta" data-aos="fade-up" data-aos-delay="500">
-        <a href="https://wa.me/2347046408968?text=Hi%20I%20want%20to%20get%20info%20on%20WhatsApp" target="_blank" class="whatsapp-btn-large">
-          Send Me the Open Day Details
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Limited Spaces Section -->
-  <section class="limited-spaces">
-    <div class="container">
-      <div class="limited-content" data-aos="zoom-in">
-        <div class="urgency-indicators">
-          <div class="indicator">
-            <i class="fas fa-clock"></i>
-            <span>Limited Time</span>
-          </div>
-          <div class="indicator">
-            <i class="fas fa-users"></i>
-            <span>2</span>
-          </div>
-        </div>
-        
-        <h2 class="limited-title">
-          <i class="fas fa-exclamation-triangle"></i>
-          Only a Few Spaces Left in Pre-K, Nursery & Primary
-        </h2>
-        
-        <p class="limited-subtitle">
-          Book via WhatsApp before [DATE] to receive:
-        </p>
-
-        <div class="benefits-row">
-          <div class="benefit-box">
-            <i class="fas fa-gift"></i>
-            <span>Free School Starter Kit</span>
-          </div>
-          <div class="benefit-box">
-            <i class="fas fa-user-tie"></i>
-            <span>1-on-1 Help with Admissions</span>
-          </div>
-          <div class="benefit-box">
-            <i class="fas fa-certificate"></i>
-            <span>Priority Placement Consideration</span>
-          </div>
-        </div>
-
-        <div class="register-section">
-          <h3><i class="fas fa-edit"></i> Register Before [DATE] and Receive:</h3>
-          <div class="register-benefits">
-            <div class="register-column">
-              <ul>
-                <li><i class="fas fa-check"></i> Visit all classrooms walk with School Principal</li>
-                <li><i class="fas fa-check"></i> Priority Enrollment for your School-Age Child</li>
-                <li><i class="fas fa-check"></i> Connect with Alumni's (Online Session)</li>
-              </ul>
+            
+            <div class="hero-visual" data-aos="fade-left">
+                <div class="hero-card">
+                    <h3><i class="fas fa-calendar-alt"></i> Open Day Information</h3>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Complete event schedule</li>
+                        <li><i class="fas fa-check"></i> Meet our teachers</li>
+                        <li><i class="fas fa-check"></i> Campus tour details</li>
+                        <li><i class="fas fa-check"></i> Admission requirements</li>
+                        <li><i class="fas fa-check"></i> Quick Q&A session</li>
+                    </ul>
+                    <a href="https://wa.me/2347046408968?text=Send%20me%20Open%20Day%20details" target="_blank" class="btn-primary" style="width: 100%; justify-content: center;">
+                        <i class="fab fa-whatsapp"></i>
+                        Send Me Details
+                    </a>
+                </div>
             </div>
-            <div class="register-column">
-              <ul>
-                <li><i class="fas fa-check"></i> School Culture that believes with the first name</li>
-                <li><i class="fas fa-check"></i> Full-featured (we will send) school culture</li>
-                <li><i class="fas fa-check"></i> Alumni's (Network) Alumni information</li>
-              </ul>
-            </div>
-          </div>
         </div>
+    </section>
 
-        <p class="disclaimer">
-          But the facility has a natural walk sessions at the appropriate Open Day experience
-        </p>
-
-        <div class="action-buttons">
-          <a href="https://wa.me/2347046408968?text=Hi%20I%20want%20to%20secure%20my%20place" target="_blank" class="secure-btn">
-            <i class="fas fa-shield-alt"></i>
-            Secure My Place via WhatsApp
-          </a>
-          <a href="tel:+2347046408968" class="call-btn">
-            <i class="fas fa-phone"></i>
-          </a>
+    <!-- Trust Section -->
+    <section class="trust-section" id="about">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title playfair">Why Parents Choose Taurean Schools</h2>
+                <p class="section-subtitle">
+                    Four decades of proven excellence in shaping young minds and building character
+                </p>
+            </div>
+            
+            <div class="trust-grid">
+                <div class="trust-card fade-in-up" data-aos="fade-up" data-aos-delay="100">
+                    <div class="trust-icon icon-1">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Legacy of Excellence</h3>
+                    <p>Over 40 years of educational leadership in Lagos, with a proven track record of academic achievement and character development.</p>
+                </div>
+                
+                <div class="trust-card fade-in-up" data-aos="fade-up" data-aos-delay="200">
+                    <div class="trust-icon icon-2">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>1000+ Success Stories</h3>
+                    <p>Our graduates excel in top universities and successful careers worldwide, building on the strong foundation we provide.</p>
+                </div>
+                
+                <div class="trust-card fade-in-up" data-aos="fade-up" data-aos-delay="300">
+                    <div class="trust-icon icon-3">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Values-Centered Education</h3>
+                    <p>We combine academic excellence with strong moral values, nurturing well-rounded individuals ready for tomorrow's challenges.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <p class="note">*We walk families since at admissions are done every Monday</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Visit School Section -->
-  <section class="visit-school">
-    <div class="container">
-      <div class="visit-content">
-        <div class="visit-info" data-aos="fade-right">
-          <h2 class="visit-title">
-            <i class="fas fa-map-marker-alt"></i>
-            Visit The Taurean School
-          </h2>
-          <p class="visit-subtitle">
-            Located in the heart of Surulere, our beautiful campus offers a world-class learning environment.
-          </p>
-
-          <div class="location-details">
-            <div class="location-card">
-              <i class="fas fa-map-marker-alt"></i>
-              <div>
-                <h4>Our Location</h4>
-                <p>The Taurean School<br>
-                45 Akinola Cole Cres, Adeniyi Jones<br>
-                Ikeja, Lagos 100271<br>
-                Nigeria</p>
-              </div>
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title playfair">What You'll Get on WhatsApp</h2>
+                <p class="section-subtitle">
+                    Instant access to everything you need to know about our school
+                </p>
             </div>
-
-            <div class="location-card">
-              <i class="fas fa-clock"></i>
-              <div>
-                <h4>Open Day</h4>
-                <p>Every Monday<br>
-                9:00 AM - 3:00 PM</p>
-              </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item fade-in-up" data-aos="fade-right" data-aos-delay="100">
+                    <div class="benefit-number">01</div>
+                    <div class="benefit-content">
+                        <h4>Complete Open Day Schedule</h4>
+                        <p>Detailed timeline of all activities, presentations, and campus tours</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item fade-in-up" data-aos="fade-right" data-aos-delay="200">
+                    <div class="benefit-number">02</div>
+                    <div class="benefit-content">
+                        <h4>Teacher Profiles & Bios</h4>
+                        <p>Meet the dedicated educators who will guide your child's journey</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item fade-in-up" data-aos="fade-right" data-aos-delay="300">
+                    <div class="benefit-number">03</div>
+                    <div class="benefit-content">
+                        <h4>Admission Requirements</h4>
+                        <p>Clear guidance on application process and enrollment procedures</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item fade-in-up" data-aos="fade-right" data-aos-delay="400">
+                    <div class="benefit-number">04</div>
+                    <div class="benefit-content">
+                        <h4>Instant Answers</h4>
+                        <p>Quick responses from our admissions team for all your questions</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item fade-in-up" data-aos="fade-right" data-aos-delay="500">
+                    <div class="benefit-number">05</div>
+                    <div class="benefit-content">
+                        <h4>Event Reminders</h4>
+                        <p>Never miss important dates with our automated reminder system</p>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div class="contact-options">
-            <div class="contact-item">
-              <i class="fas fa-phone"></i>
-              <div>
-                <h4>Call Us</h4>
-                <p>+234 704 640 8968<br>
-                Mon-Fri: 8:00 AM - 4:00 PM</p>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <i class="fab fa-whatsapp"></i>
-              <div>
-                <h4>Chat Us</h4>
-                <p>WhatsApp us for instant<br>
-                responses and quick help</p>
-              </div>
-            </div>
-          </div>
         </div>
+    </section>
 
-        <div class="visit-map" data-aos="fade-left">
-          <div class="map-container">
-            <div class="map-placeholder">
-              <i class="fas fa-map-marker-alt"></i>
-              <h3>Interactive Map</h3>
-              <p>45 Akinola Cole Cres, Adeniyi Jones</p>
-              <button class="directions-btn">
-                <i class="fas fa-directions"></i>
-                Get Directions
-              </button>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content fade-in-up">
+                <h2 class="playfair">Ready to Join Our Family?</h2>
+                <p>
+                    Take the first step towards your child's bright future. Get instant access to 
+                    Open Day information and speak directly with our admissions team.
+                </p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/2347046408968?text=I%27m%20ready%20to%20learn%20more%20about%20Taurean%20Schools" target="_blank" class="btn-white">
+                        <i class="fab fa-whatsapp"></i>
+                        Start WhatsApp Chat
+                    </a>
+                    <a href="tel:+2347046408968" class="btn-white">
+                        <i class="fas fa-phone"></i>
+                        Call Us Now
+                    </a>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Getting There Info -->
-      <div class="getting-there" data-aos="fade-up">
-        <h3>Getting There</h3>
-        <div class="transport-options">
-          <div class="transport-item">
-            <i class="fas fa-car"></i>
-            <span>Easily accessible by private car, with plenty of parking space</span>
-          </div>
-          <div class="transport-item">
-            <i class="fas fa-bus"></i>
-            <span>Public transport options and ride-hailing services available</span>
-          </div>
-          <div class="transport-item">
-            <i class="fas fa-walking"></i>
-            <span>Walking distance from major landmarks in Surulere area</span>
-          </div>
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title playfair">Visit Our Campus</h2>
+                <p class="section-subtitle">
+                    Experience our world-class facilities and meet our dedicated team
+                </p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info fade-in-up" data-aos="fade-right">
+                    <h3>Get in Touch</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Our Location</h4>
+                            <p>45 Akinola Cole Crescent<br>Adeniyi Jones, Ikeja<br>Lagos 100271, Nigeria</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+234 704 640 8968<br>Mon-Fri: 8:00 AM - 4:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Open Days</h4>
+                            <p>Every Monday<br>9:00 AM - 3:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>WhatsApp</h4>
+                            <p>Instant responses<br>Available 24/7</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-container fade-in-up" data-aos="fade-left">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.1!2d3.3566!3d6.6282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzYnNDEuNSJOIDPCsDIxJzI0LjAiRQ!5e0!3m2!1sen!2sng!4v1234567890"
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Quick WhatsApp Chat Section -->
-  <section class="quick-chat">
-    <div class="container">
-      <div class="chat-content" data-aos="zoom-in">
-        <h2><i class="fas fa-comments"></i> Quick WhatsApp Chat</h2>
-        <p>
-          <strong>or instantly send other questions or questions to our admissions team</strong><br>
-          → They'll respond to all questions within 2 hours (Monday-Friday)
-        </p>
-        <a href="https://wa.me/2347046408968?text=Hi%20I%20have%20a%20question%20about%20admissions" target="_blank" class="chat-btn">
-          <i class="fab fa-whatsapp"></i>
-          Chat with us on WhatsApp
-        </a>
-      </div>
-    </div>
-  </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>The Taurean Schools</h3>
+                    <p>
+                        Building tomorrow's leaders through excellence in education, strong values, 
+                        and personalized attention. Join our family of successful graduates who are 
+                        making a difference in the world.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://wa.me/2347046408968" target="_blank" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" target="_blank" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#contact">Admissions</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Programs</h4>
+                    <ul>
+                        <li><a href="#">Pre-Kindergarten</a></li>
+                        <li><a href="#">Nursery</a></li>
+                        <li><a href="#">Primary School</a></li>
+                        <li><a href="#">After School</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Taurean Schools. All rights reserved. | Excellence in Education Since 1981</p>
+            </div>
+        </div>
+    </footer>
 
-  <!-- Ready to Experience Section -->
-  <section class="ready-experience">
-    <div class="container">
-      <div class="experience-content" data-aos="fade-up">
-        <h2>Ready to Experience Excellence?</h2>
-        <p><strong>→ Ready to experience academic excellence and watch your child flourish</strong></p>
-        <div class="experience-buttons">
-          <a href="https://wa.me/2347046408968?text=Hi%20I%20want%20to%20schedule%20a%20visit" target="_blank" class="experience-btn primary">
+    <!-- Floating WhatsApp -->
+    <div class="floating-whatsapp">
+        <a href="https://wa.me/2347046408968?text=Hi%20I%20need%20information%20about%20The%20Taurean%20Schools" target="_blank">
             <i class="fab fa-whatsapp"></i>
-            WhatsApp Us
-          </a>
-          <a href="tel:+2347046408968" class="experience-btn secondary">
-            <i class="fas fa-phone"></i>
-            Call Us
-          </a>
-        </div>
-      </div>
+        </a>
     </div>
-  </section>
 
-  <!-- Floating WhatsApp Button -->
-  <div class="floating-whatsapp">
-    <a href="https://wa.me/2347046408968?text=Hi%20I%20want%20to%20know%20more%20about%20The%20Taurean%20School" target="_blank">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-  </div>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="app.js"></script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Analytics tracking for WhatsApp clicks
+        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('WhatsApp link clicked:', this.href);
+                // Add your analytics tracking code here
+            });
+        });
+    </script>
 </body>
 </html>
 
